@@ -13,19 +13,19 @@ class Assasin extends Hero {
     }
 
     @Override
-    void hit(Hero hero) {
+    String hit(Hero hero) {
         if (hero != this) {
             if(health < 0) {
-                System.out.println(this.name + " погиб и бить не может!");
+                return (this.name + " погиб и бить не может!");
             } else {
                 hero.causeDamage(damage + cricitalHit);
             }
-            System.out.println(this.name + " нанес урон " + hero.name);
-        }
+            return (this.name + " нанес урон " + hero.name);
+        } return (this.name + " промахнулся");
     }
 
     @Override
-    void healing(Hero hero) {
-        System.out.println("Убийцы не умеют лечить!");
+    String healing(Hero hero) {
+        return ("Убийцы не умеют лечить!");
     }
 }

@@ -15,10 +15,10 @@ abstract class Hero {
     }
 
     // метод для удара
-    abstract void hit(Hero hero);
+    abstract String hit(Hero hero);
 
     // метод для лечения
-    abstract void healing(Hero hero);
+    abstract String healing(Hero hero);
 
     // метод для нанесения урона
     void causeDamage(int damage) {
