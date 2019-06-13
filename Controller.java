@@ -89,7 +89,7 @@ public class Controller {
         int team2Count = teamRight.size();
         int roundCount = 1;
         while (team1Count != 0 && team2Count != 0){
-            System.out.println("Раунд " + roundCount + " :");
+            battleArea.appendText("Раунд " + roundCount + " :" + "\n");
             roundCount++;
 
             if (randomStep.nextInt(2) == 0) {
@@ -100,7 +100,6 @@ public class Controller {
                 team2Count = doHitOrHealing(randomIndex, randomHealing, (ArrayList<Hero>) teamLeft, (ArrayList<Hero>) teamRight, team2Count);
             }
         }
-        System.out.println("---------------");
 
         leftTeam.appendText("\n" + "Результаты боя: " + "\n");
         if(teamLeft.isEmpty()){
@@ -145,18 +144,18 @@ public class Controller {
         }
     }
 
-    private static int doHitOrHealing(Random randomIndex, Random randomHealing, ArrayList<Hero> team1, ArrayList<Hero> team2, int team2Count) {
+    private int doHitOrHealing(Random randomIndex, Random randomHealing, ArrayList<Hero> team1, ArrayList<Hero> team2, int team2Count) {
         for (int i = 0; i < team1.size(); i++) {
-            // ДОКТОР
+                // ДОКТОР
             if (team1.get(i) instanceof Doctor) {
-                team1.get(i).healing(team1.get(randomHealing.nextInt(2)));
+                battleArea.appendText(team1.get(i).healing(team1.get(randomHealing.nextInt(2))) + "\n");
             } else {
                 if (team2.size() == 0) {
                     break;
                 }
                 // БОЕЦ
                 int index = randomIndex.nextInt(team2.size());
-                team1.get(i).hit(team2.get(index));
+                battleArea.appendText(team1.get(i).hit(team2.get(index)) + "\n");
                 if (team2.get(index).health <= 0) {
                     team2.remove(index);
                     team2Count--;
