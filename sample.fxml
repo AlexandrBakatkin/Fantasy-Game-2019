@@ -1,0 +1,55 @@
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<VBox fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" >
+
+    <HBox>
+        <VBox fx:id="leftTeamPanel" HBox.hgrow="ALWAYS" alignment="TOP_CENTER">
+            <Label text="Состав команды №1:"></Label>
+            <TextArea fx:id="leftTeam" VBox.vgrow="ALWAYS" editable="false" maxHeight="150" maxWidth="298"></TextArea>
+            <ComboBox fx:id="comboBoxLeftTeam" VBox.vgrow="ALWAYS" >
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Тигрил" />
+                    <String fx:value="Акали" />
+                    <String fx:value="Жанна" />
+                    <String fx:value="Минотавр" />
+                    <String fx:value="Джинкс" />
+                    <String fx:value="Зои" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Button fx:id="leftTeamOk" onAction="#choosePersonLeft" text="OK"></Button>
+        </VBox>
+        <VBox fx:id="rightTeamPanel" HBox.hgrow="ALWAYS" alignment="TOP_CENTER">
+            <Label text="Состав команды №2:"></Label>
+            <TextArea fx:id="rightTeam" VBox.vgrow="ALWAYS" editable="false" maxHeight="150" maxWidth="298"></TextArea>
+            <ComboBox fx:id="comboBoxRightTeam" VBox.vgrow="ALWAYS">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Тигрил" />
+                    <String fx:value="Акали" />
+                    <String fx:value="Жанна" />
+                    <String fx:value="Минотавр" />
+                    <String fx:value="Джинкс" />
+                    <String fx:value="Зои" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Button fx:id="rightTeamOk" onAction="#choosePersonRight" text="OK"></Button>
+        </VBox>
+    </HBox>
+
+    <HBox VBox.vgrow="ALWAYS" alignment="BOTTOM_CENTER">
+        <VBox alignment="TOP_CENTER">
+        <TextArea fx:id="battleArea" HBox.hgrow="ALWAYS" maxHeight="200" editable="false"></TextArea>
+        <Button alignment="CENTER" onAction="#Game">СТАРТ</Button>
+        </VBox>
+    </HBox>
+</VBox>
